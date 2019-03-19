@@ -1,5 +1,7 @@
 import React from "react";
 
+import Book from "./Book";
+
 function Turn({ author, books }) {
   return (
     <div className="row turn" style={{ backgroundColor: "white" }}>
@@ -7,11 +9,8 @@ function Turn({ author, books }) {
         <img src={author.imageUrl} className="authorimage" alt="Author" />
       </div>
       <div className="col-6">
-        {/* {books.map(title => (
-          <Book title={title} key={title} />
-        ))} */}
         {books.map(title => (
-          <p>{title}</p>
+          <Book title={title} key={title} />
         ))}
       </div>
     </div>
