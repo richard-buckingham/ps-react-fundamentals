@@ -1,5 +1,4 @@
-import React, { Component } from "react";
-import logo from "./logo.svg";
+import React from "react";
 import "./App.css";
 import "./bootstrap.min.css";
 
@@ -9,12 +8,12 @@ import Turn from "./components/Turn";
 import Continue from "./components/Continue";
 import Footer from "./components/Footer";
 
-function AuthorQuiz({ turnData }) {
+function AuthorQuiz({ turnData, highlight }) {
   console.log(`turnData = ${turnData}}`);
   return (
     <div className="container-fluid">
       <Hero />
-      <Turn {...turnData} />
+      <Turn {...turnData} highlight={highlight} />
       <Continue />
       <Footer />
     </div>

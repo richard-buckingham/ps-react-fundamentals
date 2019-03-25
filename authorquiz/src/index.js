@@ -62,7 +62,8 @@ function getTurnData(authors) {
 
 // define state
 const state = {
-  turnData: getTurnData(authors)
+  turnData: getTurnData(authors),
+  highlight: "wrong"
 };
 
 ReactDOM.render(<AuthorQuiz {...state} />, document.getElementById("root"));
