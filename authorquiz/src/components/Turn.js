@@ -2,7 +2,7 @@ import React from "react";
 
 import Book from "./Book";
 
-function Turn({ author, books, highlight }) {
+function Turn({ author, books, highlight, onAnswerSelected }) {
   // highlight can be none, correct, or wrong
   console.log(`highlight = ${highlight}`);
   function highlightToBgColor(highlight) {
@@ -24,7 +24,7 @@ function Turn({ author, books, highlight }) {
       </div>
       <div className="col-6">
         {books.map(title => (
-          <Book title={title} key={title} />
+          <Book title={title} key={title} onClick={onAnswerSelected} />
         ))}
       </div>
     </div>
