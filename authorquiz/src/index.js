@@ -6,6 +6,8 @@ import "./index.css";
 import "./bootstrap.min.css";
 
 import AuthorQuiz from "./AuthorQuiz";
+import AddAuthorForm from "./components/AddAuthorForm";
+
 import * as serviceWorker from "./serviceWorker";
 import { shuffle, sample } from "underscore";
 
@@ -80,7 +82,15 @@ function App() {
 }
 
 function render() {
-  ReactDOM.render(<App />, document.getElementById("root"));
+  ReactDOM.render(
+    <BrowserRouter>
+      <React.Fragment>
+        <Route exact path="/" component={App} />
+        <Route path="/add" component={AddAuthorForm} />
+      </React.Fragment>
+    </BrowserRouter>,
+    document.getElementById("root")
+  );
 }
 render();
 
