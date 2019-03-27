@@ -75,11 +75,12 @@ function onAnswerSelected(answer) {
   render();
 }
 
+function App() {
+  return <AuthorQuiz {...state} onAnswerSelected={onAnswerSelected} />;
+}
+
 function render() {
-  ReactDOM.render(
-    <AuthorQuiz {...state} onAnswerSelected={onAnswerSelected} />,
-    document.getElementById("root")
-  );
+  ReactDOM.render(<App />, document.getElementById("root"));
 }
 render();
 
