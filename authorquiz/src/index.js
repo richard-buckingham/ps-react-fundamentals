@@ -6,7 +6,7 @@ import "./index.css";
 import "./bootstrap.min.css";
 
 import AuthorQuiz from "./AuthorQuiz";
-import AddAuthorForm from "./components/AddAuthorForm";
+import AddAuthorForm from "./components/addAuthorForm/AddAuthorForm";
 
 import * as serviceWorker from "./serviceWorker";
 import { shuffle, sample } from "underscore";
