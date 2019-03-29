@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 
 class AuthorForm extends React.Component {
   constructor(props) {
@@ -6,18 +6,32 @@ class AuthorForm extends React.Component {
     // create default state
     this.state = { name: "", imageUrl: "" };
     this.onFieldChange = this.onFieldChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleAddBook = this.handleAddBook.bind(this);
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    console.log("in handleSubmit, calling this.props.onAddAuthor(this.state)");
+    this.props.onAddAuthor(this.state);
   }
 
   onFieldChange(event) {
-    console.log(`in onFieldChange, event = `, event);
     this.setState({
       [event.target.name]: event.target.value
     });
   }
 
+  handleAddBook(event) {
+    this.setState({
+      books: this.state.books.concat([this.state.bookTemp]),
+      bookTemp: ""
+    });
+  }
+
   render() {
     return (
-      <form>
+      <form onSubmit={this.handleSubmit}>
         <div className="AddAuthorForm__input">
           <label htmlFor="name">Name</label>
           <input
@@ -37,6 +51,7 @@ class AuthorForm extends React.Component {
             onChange={this.onFieldChange}
           />
         </div>
+        <input type="submit" value="Add" />
       </form>
     );
   }

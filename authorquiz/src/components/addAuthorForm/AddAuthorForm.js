@@ -4,11 +4,11 @@ import AuthorForm from "./AuthorForm";
 
 import "./AddAuthorForm.css";
 
-function AddAuthorForm({ match }) {
+function AddAuthorForm({ match, onAddAuthor }) {
   return (
     <div className="AddAuthorForm">
       <h1>Add Author</h1>
-      <AuthorForm />
+      <AuthorForm onAddAuthor={onAddAuthor} />
     </div>
   );
 }
