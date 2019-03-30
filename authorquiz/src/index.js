@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter, Route, withRouter } from "react-router-dom";
 
 import "./index.css";
 import "./bootstrap.min.css";
@@ -81,19 +81,18 @@ function App() {
   return <AuthorQuiz {...state} onAnswerSelected={onAnswerSelected} />;
 }
 
-function AuthorWrapper() {
-  console.log("in the AutoWrapper function");
-  return (
-    <AddAuthorForm
-      onAddAuthor={author => {
-        console.log("authors before = ", authors);
-        console.log("author = ", author);
-        authors.push(author);
-        console.log("authors after = ", authors);
-      }}
-    />
-  );
-}
+const AuthorWrapper = withRouter(({ history }) => (
+  <AddAuthorForm
+    onAddAuthor={author => {
+      console.log("authors before = ", authors);
+      console.log("author = ", author);
+      authors.push(author);
+      console.log("authors after = ", authors);
+      // push a new path onto the history object to force the browser to the root of the app
+      history.push("/");
+    }}
+  />
+));
 
 function render() {
   ReactDOM.render(
