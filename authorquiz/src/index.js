@@ -83,7 +83,16 @@ function App() {
 
 function AuthorWrapper() {
   console.log("in the AutoWrapper function");
-  return <AddAuthorForm onAddAuthor={console.log} />;
+  return (
+    <AddAuthorForm
+      onAddAuthor={author => {
+        console.log("authors before = ", authors);
+        console.log("author = ", author);
+        authors.push(author);
+        console.log("authors after = ", authors);
+      }}
+    />
+  );
 }
 
 function render() {
